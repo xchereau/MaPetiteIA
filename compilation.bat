@@ -1,13 +1,9 @@
-rmdir /S /Q Build 2>nul
 
-mkdir Build
+::Generation of build repo
+Cmake -B Build  
 
-:: compiler les fichiers :
-GCC -Wall -Wextra -Iget_mnist_data\ -c main.c -o Build\main.o
-GCC -Wall -Wextra -Iget_mnist_data\ -c get_mnist_data\get_mnist_vector.c -o Build\get_mnist_vector.o
+::Compile and create .exe 
+Cmake --build Build
 
-:: link files 
-gcc Build\main.o Build\get_mnist_vector.o -o Build\MAPETITEIA.exe
-
-:: build project
-.\Build\MAPETITEIA.exe
+:: build the project 
+X:\MaPetiteIA\Build\Debug\MAPETITEIA.exe
