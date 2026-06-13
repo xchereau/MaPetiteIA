@@ -6,4 +6,4 @@ Cmake -B Build
 Cmake --build Build
 
 :: build the project 
-X:\MaPetiteIA\Build\Debug\MAPETITEIA.exe
+.\Build\Debug\MAPETITEIA.exe
