@@ -32,13 +32,16 @@ int get_signal(uint8_t *table_adrress,int max_size,const char *path_file)
 
 int print_images(uint8_t *images ,uint8_t *labels ,uint8_t label_number){
     printf("Labels %d: %d\n\r",label_number,*(labels+label_number*sizeof(uint8_t)));
-    uint8_t *image = (images+label_number*sizeof(uint8_t));
-    for (uint8_t line = 0 ; line <28 ;line++){
-        for (uint8_t index = 0 ; index<28 ; index++){
-            char pixel_value = (*(image+line*28+index)>127) ? '#' : ' '; 
+    uint8_t *image = (images+label_number*784*sizeof(uint8_t));
+    uint8_t line = 0;
+    uint8_t index = 0;
+    for ( line =0; line <28 ;line++){
+        for ( index =0; index<28 ; index++){
+            char pixel_value = (*(image+(line*28+index))>127) ? '#' : ' ';
             printf("%c",pixel_value); 
         }
-        printf("\n\r");
+        printf("l%d\n\r",line);
     }
+    printf("their is : %d / %d\n\r", line*27+index,784);
     return 0;
 }
